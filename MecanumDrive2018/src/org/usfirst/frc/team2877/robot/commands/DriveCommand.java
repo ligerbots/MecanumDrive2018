@@ -19,7 +19,7 @@ public class DriveCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        Robot.driveTrain.MecanumDrive(Robot.oi.getThrottle(), Robot.oi.getStrafe(), Robot.oi.getRotate(), Robot.driveTrain.getYaw());
+        Robot.driveTrain.MecanumDrive(Robot.oi.getStrafe(), Robot.oi.getThrottle(), Robot.oi.getRotate(), Robot.driveTrain.getYaw());
     }
 
     // Make this return true when this Command no longer needs to run execute()

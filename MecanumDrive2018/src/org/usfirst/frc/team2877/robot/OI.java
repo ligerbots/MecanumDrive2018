@@ -47,7 +47,7 @@ public class OI {
         return xbox.getY(GenericHID.Hand.kLeft);
     }
     public double getStrafe() {
-        return xbox.getX(GenericHID.Hand.kLeft);
+        return -xbox.getX(GenericHID.Hand.kLeft);
     }
     public double getRotate() {
         return xbox.getX(GenericHID.Hand.kRight);

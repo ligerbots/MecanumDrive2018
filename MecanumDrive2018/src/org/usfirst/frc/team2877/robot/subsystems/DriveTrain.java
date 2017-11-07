@@ -29,20 +29,22 @@ public class DriveTrain extends Subsystem {
         talon2 = new CANTalon(RobotMap.CT_2);
         talon3 = new CANTalon(RobotMap.CT_3);
         talon4 = new CANTalon(RobotMap.CT_4);
+        talon1.setInverted(true);
+        talon4.setInverted(true);
         
         talon1.changeControlMode(TalonControlMode.PercentVbus);
         talon2.changeControlMode(TalonControlMode.PercentVbus);
         talon3.changeControlMode(TalonControlMode.PercentVbus);
         talon4.changeControlMode(TalonControlMode.PercentVbus);
 
-        robotDrive = new RobotDrive(talon1, talon2, talon3, talon4);
+        robotDrive = new RobotDrive(talon4, talon1, talon3, talon2);
         
         navx = new AHRS(SPI.Port.kMXP);
 
     }
     
-    public void MecanumDrive(double forward, double strafe, double rotate, double gyroAngle) {
-        robotDrive.mecanumDrive_Cartesian(strafe, forward, rotate, gyroAngle);
+    public void MecanumDrive(double strafe, double forward, double rotate, double gyroAngle) {
+        robotDrive.mecanumDrive_Cartesian(strafe, forward, rotate, 0);
     }
     
     public double getYaw() {
